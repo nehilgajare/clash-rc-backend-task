@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    {% if error %}
+    {{ error }}
+    {% endif %}
+    <form action="{% url 'signup' %}" method="post">
+        {% csrf_token %}  
+        <label for="username"><b>Enter username :</b></label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="fname"><b>Enter first name :</b></label>
+        <input type="text" id="fname" name="fname" required><br><br>
+
+        <label for="lname"><b>Enter last name :</b></label>
+        <input type="text" id="lname" name="lname" required><br><br>
+
+        <label for="email"><b>Enter email address :</b></label>
+        <input type="email" id="email" name="email" placeholder=" user12@gmail.com" required><br><br>
+
+        <p> <b>Enter phone number : </b><input type="tel" name="phone" id="phone" maxlength="10" > </p>
+
+        <p><b>Select gender:</b></p>
+        <p>
+        <ul>
+        <li><p><b> Male</b> <input type="radio" name="gender" id="male"></p></li>
+        <li><p><b>Female </b><input type="radio" name="gender" id="female"></p></li>
+        <li><p><b>Others</b> <input type="radio" name="gender" id="others"></p></li>
+        </ul>
+        </p>
+
+        <p><b>Enter password : </b> <input type="password" name="password" id="pass" minlength="8"></p>
+        <p><b>Confirm password : </b> <input type="password" name="cpassword" id="cpass" minlength="8"></p>
+        <br>
+        <input type="submit" value="Sign Up"><br><br>
+
+        <a class="button" href="{% url 'login' %}" >Already have an account? Login here instead. </a>
+        <br><br>
+
+
+    </form>
+</body>
+</html>

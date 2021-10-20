@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+</head>
+<body>
+    <p>
+        You Have been successfully Logged in!
+    </p>
+    <form action="{% url 'homepage' %}" method="POST">
+        {% csrf_token %}
+        <p><b>Input :</b><input type="text" name="Input"></p>
+        <br>
+        <p><b>Select Filteration Category</b></p>
+        <br>
+        <ul>
+            <li><p> Filter out number from string greater than 100 <input id="a1"  value="number" type="radio" name="Filter" ></p></li>
+            <li><p> Filter out date from string in yyyy-mm-dd format <input id="a2" value="date" type="radio" name="Filter" ></p></li>
+            <li><p> Filter out string within single quotes in the given string <input  id="a3" value="string" type="radio" name="Filter" ></p></li>
+            <li><p> Validate IP address and determine class <input id="a4" value="ipaddress" type="radio" name="Filter" ></p></li>
+            <li><p> Validate MAC address <input id="a5" value="macaddress" type="radio" name="Filter" ></p></li>
+            <li><p> Convert CamelCase to snake_case. <input id="a6" value="camelcasetosnake" type="radio" name="Filter" ></p></li>
+            <li><p> Email Validator <input id="a7" value="email_valid" type="radio" name="Filter" ></p></li>
+        </ul>
+        <br>
+        <input type="submit" value="Submit">
+        <br>
+       
+    </form>
+
+    <h2>Output:</h2>
+    <h3 id="selectedfunction1">{{ result }} </h3>
+
+    <a href="{% url 'login' %}">Logout</a>
+</body>
+</html>
